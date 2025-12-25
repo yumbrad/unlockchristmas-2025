@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Unlock Christmas 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Roboto+Mono:wght@300;400;600&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <header class="dashboard hidden" id="dashboard">
+      <div class="dashboard-top">
+        <div class="dashboard-title glitch">SYSTEM RESTORE DASHBOARD</div>
+        <div class="progress">
+          <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <div class="progress-text" id="progress-text">0/7</div>
+        </div>
+      </div>
+      <div class="avatars" id="avatar-list">
+        <div class="avatar-slot" data-index="0">
+          <img src="assets/icons/adelle.png" alt="Adelle avatar">
+          <div class="avatar-label">Adelle</div>
+          <div class="avatar-state">LOCKED</div>
+        </div>
+        <div class="avatar-slot" data-index="1">
+          <img src="assets/icons/thaddeus.png" alt="Thaddeus avatar">
+          <div class="avatar-label">Thaddeus</div>
+          <div class="avatar-state">LOCKED</div>
+        </div>
+        <div class="avatar-slot" data-index="2">
+          <img src="assets/icons/josiah.png" alt="Josiah avatar">
+          <div class="avatar-label">Josiah</div>
+          <div class="avatar-state">LOCKED</div>
+        </div>
+        <div class="avatar-slot" data-index="3">
+          <img src="assets/icons/maisie.png" alt="Maisie avatar">
+          <div class="avatar-label">Maisie</div>
+          <div class="avatar-state">LOCKED</div>
+        </div>
+        <div class="avatar-slot" data-index="4">
+          <img src="assets/icons/mikey.png" alt="Mikey avatar">
+          <div class="avatar-label">Mikey</div>
+          <div class="avatar-state">LOCKED</div>
+        </div>
+        <div class="avatar-slot" data-index="5">
+          <img src="assets/icons/laurana.png" alt="Laurana avatar">
+          <div class="avatar-label">Laurana</div>
+          <div class="avatar-state">LOCKED</div>
+        </div>
+        <div class="avatar-slot" data-index="6">
+          <img src="assets/icons/norasue.png" alt="NoraSue avatar">
+          <div class="avatar-label">NoraSue</div>
+          <div class="avatar-state">LOCKED</div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section id="intro" class="screen">
+        <div id="introNormal" class="intro-panel">
+          <div class="intro-snow"></div>
+          <h1 class="intro-title">Merry Christmas</h1>
+          <div class="intro-photo" aria-hidden="true"></div>
+          <p class="intro-subtitle">Loading your holiday surprise...</p>
+        </div>
+
+        <div id="introBoot" class="intro-panel hidden">
+          <div class="scanlines" aria-hidden="true"></div>
+          <pre id="bootLog" class="boot-log" aria-live="polite"></pre>
+          <div id="bootBigLine" class="boot-bigline"></div>
+        </div>
+
+        <button id="introStartBtn" class="intro-start" type="button">
+          TAP TO START
+        </button>
+      </section>
+      <section class="level" id="level-0" data-level="0">
+        <h1 class="glitch" data-typewriter="SYSTEM FAILURE. CRITICAL ERROR.">SYSTEM FAILURE. CRITICAL ERROR.</h1>
+        <p data-typewriter="ENTER OVERRIDE CODE FOR ADELLE.">ENTER OVERRIDE CODE FOR ADELLE.</p>
+        <form id="adelle-form" class="terminal-form">
+          <input id="adelle-code" type="text" autocomplete="off" spellcheck="false" placeholder="OVERRIDE CODE">
+          <button type="submit">SUBMIT</button>
+        </form>
+        <p class="response" id="adelle-response" aria-live="polite"></p>
+      </section>
+
+      <section class="level" id="level-1" data-level="1">
+        <h1 class="glitch" data-typewriter="POWER MOONS DEPLETED.">POWER MOONS DEPLETED.</h1>
+        <p data-typewriter="ENTER POWER MOON COUNT.">ENTER POWER MOON COUNT.</p>
+        <form id="thaddeus-form" class="terminal-form triple">
+          <input class="hud-input" inputmode="numeric" maxlength="1" aria-label="First digit">
+          <input class="hud-input" inputmode="numeric" maxlength="1" aria-label="Second digit">
+          <input class="hud-input" inputmode="numeric" maxlength="1" aria-label="Third digit">
+          <button type="submit">SUBMIT</button>
+        </form>
+        <div class="instruction-box">
+          <p>
+            POWER MOONS HAVE BEEN LOST.<br>
+            <br>
+            TO RESTORE THEM,<br>
+            COMPLETE THE MARIO OBSTACLE COURSE.<br>
+            <br>
+            LOCATION:<br>
+            THE DRIVEWAY AT THE SMALL HOUSE.<br>
+            <br>
+            FOLLOW THE COURSE.<br>
+            COLLECT THE POWER MOONS.<br>
+            NO SKIPPING LEVELS!
+          </p>
+        </div>
+        <p class="response" id="thaddeus-response" aria-live="polite"></p>
+      </section>
+
+      <section class="level" id="level-2" data-level="2">
+        <h1 class="glitch" data-typewriter="APERTURE SCIENCE RETRIEVAL PROTOCOL.">APERTURE SCIENCE RETRIEVAL PROTOCOL.</h1>
+        <p data-typewriter="ENTER LAB KEYCODE.">ENTER LAB KEYCODE.</p>
+        <div class="josiah-layout">
+          <div class="josiah-left">
+            <form id="josiah-form" class="terminal-form keypad-form">
+              <input id="josiah-code" type="text" inputmode="numeric" maxlength="3" autocomplete="off" spellcheck="false" placeholder="KEYPAD INPUT">
+              <div class="keypad-grid">
+                <button type="button" data-key="1">1</button>
+                <button type="button" data-key="2">2</button>
+                <button type="button" data-key="3">3</button>
+                <button type="button" data-key="4">4</button>
+                <button type="button" data-key="5">5</button>
+                <button type="button" data-key="6">6</button>
+                <button type="button" data-key="7">7</button>
+                <button type="button" data-key="8">8</button>
+                <button type="button" data-key="9">9</button>
+                <button type="button" data-action="clear">CLR</button>
+                <button type="button" data-key="0">0</button>
+                <button type="button" data-action="back">DEL</button>
+              </div>
+              <div class="level-actions">
+                <button type="submit">SUBMIT</button>
+                <button type="button" id="remote-feed" class="secondary" data-url="https://meet.google.com/nmy-birj-wpd">OPEN REMOTE FEED</button>
+              </div>
+            </form>
+          </div>
+          <div class="josiah-right">
+            <pre id="josiah-log" class="typewriter-log hidden" aria-live="polite"></pre>
+            <p class="response" id="josiah-response" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="level" id="level-3" data-level="3">
+        <h1 class="glitch" data-typewriter="ENTER PARCHMENT DATA.">ENTER PARCHMENT DATA.</h1>
+        <p data-typewriter="SIMLISH BACKCHANNEL STABLE.">SIMLISH BACKCHANNEL STABLE.</p>
+        <form id="maisie-form" class="terminal-form">
+          <input id="maisie-code" type="text" autocomplete="off" spellcheck="false" placeholder="PARCHMENT DATA">
+          <button type="submit">SUBMIT</button>
+        </form>
+        <div class="instruction-box">
+          <p>
+            THE CODE IS ALREADY HERE.<br>
+            <br>
+            IT CANNOT BE SEEN<br>
+            UNTIL IT IS WARM.<br>
+            <br>
+            TURN OVER THE PAPER<br>
+            FROM THE COMPANION CUBE.<br>
+            <br>
+            USE THE CANDLE.
+          </p>
+        </div>
+        <p class="response" id="maisie-response" aria-live="polite"></p>
+      </section>
+
+      <section class="level" id="level-4" data-level="4">
+        <h1 class="glitch" data-typewriter="PHYSICAL FIREWALL DETECTED.">PHYSICAL FIREWALL DETECTED.</h1>
+        <div id="mikey-stage1">
+          <p data-typewriter="ENTER PHYSICAL OVERRIDE.">ENTER PHYSICAL OVERRIDE.</p>
+          <form id="mikey-form" class="terminal-form">
+            <input id="mikey-code" type="text" autocomplete="off" spellcheck="false" placeholder="OVERRIDE CODE">
+            <button type="submit">SUBMIT</button>
+          </form>
+          <div class="instruction-box">
+            <p>
+              A SECURITY NODE IS OUT OF REACH.<br>
+              <br>
+              TO BYPASS THE FIREWALL,<br>
+              USE A PROJECTILE TO STRIKE THE NODE.<br>
+              <br>
+              LOCATION:<br>
+              THE TREE ABOVE THE WELL.
+            </p>
+          </div>
+          <p class="response" id="mikey-response" aria-live="polite"></p>
+        </div>
+        <div id="mikey-stage2" class="hidden">
+          <p data-typewriter="SPIKE OR SET: PRIME STRIKE PROTOCOL.">SPIKE OR SET: PRIME STRIKE PROTOCOL.</p>
+          <div class="game-hud">
+            <div>STREAK <span id="mikey-streak">0</span>/10</div>
+            <div id="mikey-status">PRESS SPACE TO SPIKE</div>
+          </div>
+          <div class="game-board">
+            <canvas id="mikey-canvas" width="900" height="320"></canvas>
+            <div id="mikey-victory" class="victory-banner hidden" aria-live="polite">
+              <div class="victory-text">
+                <span class="victory-title">VICTORY ROYALE</span>
+                <span class="victory-sub">PRESS ANY KEY TO CONTINUE</span>
+              </div>
+            </div>
+          </div>
+          <div class="game-tip">SPIKE PRIMES WITH SPACE. LET COMPOSITES FALL.</div>
+        </div>
+      </section>
+
+      <section class="level" id="level-5" data-level="5">
+        <h1 class="glitch" data-typewriter="RADAR JAMMED.">RADAR JAMMED.</h1>
+        <p data-typewriter="ASSIGN FLAVORS TO CREW MEMBERS.">ASSIGN FLAVORS TO CREW MEMBERS.</p>
+        <div class="laurana-layout">
+          <div class="laurana-left">
+            <form id="laurana-form" class="crew-form">
+              <div class="crew-row">
+                <div class="crew-name">Dark Helmet (#1)</div>
+                <select data-character="dark-helmet">
+                  <option value="">SELECT FLAVOR</option>
+                  <option value="raspberry">Raspberry</option>
+                  <option value="apricot">Apricot</option>
+                  <option value="strawberry">Strawberry</option>
+                  <option value="grape">Grape</option>
+                  <option value="marmalade">Marmalade</option>
+                </select>
+              </div>
+              <div class="crew-row">
+                <div class="crew-name">Skroob (#2)</div>
+                <select data-character="skroob">
+                  <option value="">SELECT FLAVOR</option>
+                  <option value="raspberry">Raspberry</option>
+                  <option value="apricot">Apricot</option>
+                  <option value="strawberry">Strawberry</option>
+                  <option value="grape">Grape</option>
+                  <option value="marmalade">Marmalade</option>
+                </select>
+              </div>
+              <div class="crew-row">
+                <div class="crew-name">Dot Matrix (#3)</div>
+                <select data-character="dot-matrix">
+                  <option value="">SELECT FLAVOR</option>
+                  <option value="raspberry">Raspberry</option>
+                  <option value="apricot">Apricot</option>
+                  <option value="strawberry">Strawberry</option>
+                  <option value="grape">Grape</option>
+                  <option value="marmalade">Marmalade</option>
+                </select>
+              </div>
+              <div class="crew-row">
+                <div class="crew-name">Barf (#4)</div>
+                <select data-character="barf">
+                  <option value="">SELECT FLAVOR</option>
+                  <option value="raspberry">Raspberry</option>
+                  <option value="apricot">Apricot</option>
+                  <option value="strawberry">Strawberry</option>
+                  <option value="grape">Grape</option>
+                  <option value="marmalade">Marmalade</option>
+                </select>
+              </div>
+              <div class="crew-row">
+                <div class="crew-name">Lone Starr (#5)</div>
+                <select data-character="lone-starr">
+                  <option value="">SELECT FLAVOR</option>
+                  <option value="raspberry">Raspberry</option>
+                  <option value="apricot">Apricot</option>
+                  <option value="strawberry">Strawberry</option>
+                  <option value="grape">Grape</option>
+                  <option value="marmalade">Marmalade</option>
+                </select>
+              </div>
+              <button type="submit">VERIFY LAUNCH CODE</button>
+            </form>
+            <p class="response" id="laurana-response" aria-live="polite"></p>
+          </div>
+          <div class="laurana-right">
+            <div class="clue-box">
+              <p>
+                <strong>COLONEL SANDURZ:</strong><br>
+                Sir! We've lost the bleeps, the sweeps, and the creeps!<br>
+                The radar is completely jammed - by FIVE DIFFERENT FLAVORS!<br>
+                <br>
+                To override the system, I need the Launch Code, which corresponds to the Badge Number of the crew member holding each specific flavor.<br>
+                <br>
+                Read carefully.<br>
+                The logic flows like Liquid Schwartz.<br>
+                <br>
+                <strong>The Raspberry</strong><br>
+                As the prophecy foretold, Raspberry is held by the crew member with the highest Badge Number.<br>
+                <br>
+                <strong>The Math</strong><br>
+                The Badge Number of the crew member holding Marmalade is exactly double the Badge Number of the one holding Apricot.<br>
+                <br>
+                <strong>The Dog</strong><br>
+                Barf (Badge #4) is holding a flavor that rhymes with his best friend's last name.<br>
+                ("Starr-berry"... close enough.)<br>
+                <br>
+                <strong>The Robot</strong><br>
+                Dot Matrix is holding the only flavor left.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="level" id="level-6" data-level="6">
+        <h1 class="glitch" data-typewriter="CONNECTIONS ONLINE.">CONNECTIONS ONLINE.</h1>
+        <p data-typewriter="SELECT 4 TILES TO SUBMIT A CATEGORY.">SELECT 4 TILES TO SUBMIT A CATEGORY.</p>
+        <div class="connections-grid" id="connections-grid"></div>
+        <div class="level-actions">
+          <button type="button" id="connections-submit">SUBMIT</button>
+        </div>
+        <p class="response" id="connections-status" aria-live="polite"></p>
+        <div class="connections-categories" id="connections-categories"></div>
+        <div class="coop-message hidden" id="coop-message">
+          <div>PARTIAL DATA RECOVERED. FINAL KEY LOCATED IN SECTOR:</div>
+          <div class="coop-display" id="coop-display">C-O-O-P</div>
+          <div class="coop-input hidden" id="coop-input">
+            <input id="coop-code" type="text" autocomplete="off" spellcheck="false" placeholder="AUTHORIZATION CODE">
+            <button type="button" id="coop-submit">VERIFY</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="level" id="level-7" data-level="7">
+        <h1 class="glitch" data-typewriter="SYSTEM OVERRIDE COMPLETE.">SYSTEM OVERRIDE COMPLETE.</h1>
+        <pre id="finale-message" class="finale-message" aria-live="polite"></pre>
+      </section>
+    </main>
+
+    <div class="admin-panel hidden" id="admin-panel" aria-hidden="true">
+      <div class="admin-content">
+        <h2>ADMIN OVERRIDE</h2>
+        <p>CTRL + SHIFT + D</p>
+        <div class="admin-buttons">
+          <button type="button" data-admin-level="0">0</button>
+          <button type="button" data-admin-level="1">1</button>
+          <button type="button" data-admin-level="2">2</button>
+          <button type="button" data-admin-level="3">3</button>
+          <button type="button" data-admin-level="4">4</button>
+          <button type="button" data-admin-level="5">5</button>
+          <button type="button" data-admin-level="6">6</button>
+          <button type="button" data-admin-level="7">7</button>
+        </div>
+        <div class="admin-actions">
+          <button type="button" id="admin-complete">MARK CURRENT SOLVED</button>
+          <button type="button" id="admin-intro">SKIP INTRO TO LEVEL 0</button>
+          <button type="button" id="admin-clear" class="secondary">CLEAR STORAGE</button>
+          <button type="button" id="admin-close">CLOSE</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="finale-transition hidden" id="finale-transition" aria-hidden="true">
+      <div class="finale-glyph" id="finale-glyph" data-shape="hexagon" aria-hidden="true">
+        <svg viewBox="0 0 100 100" role="presentation">
+          <polygon class="glyph-shape glyph-hex" points="50 6 92 28 92 72 50 94 8 72 8 28"></polygon>
+          <rect class="glyph-shape glyph-square" x="18" y="18" width="64" height="64" rx="4" ry="4"></rect>
+          <circle class="glyph-shape glyph-circle" cx="50" cy="50" r="36"></circle>
+        </svg>
+      </div>
+      <div class="finale-flash" id="finale-flash" aria-hidden="true"></div>
+    </div>
+
+    <div class="success-banner hidden" id="success-banner" aria-live="polite">
+      <div class="success-text glitch" id="success-text"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
