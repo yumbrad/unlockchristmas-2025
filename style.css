@@ -868,7 +868,7 @@ button.secondary:hover {
   letter-spacing: 0.08em;
   box-shadow: 0 0 24px rgba(0, 255, 65, 0.15);
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 4.6s ease;
 }
 
 .finale-message.show {
@@ -885,7 +885,7 @@ button.secondary:hover {
   z-index: 10;
   opacity: 0;
   transition: opacity 0.2s ease;
-  --glyph-color: #00ff41;
+  --glyph-color: #00d84a;
   --glyph-duration: 2400ms;
 }
 
@@ -896,14 +896,14 @@ button.secondary:hover {
 .finale-glyph {
   width: clamp(180px, 30vw, 280px);
   height: clamp(180px, 30vw, 280px);
-  transform: scale(1);
+  transform: scale(0.68);
   transition: transform var(--glyph-duration) ease;
-  filter: drop-shadow(0 0 18px rgba(0, 255, 65, 0.25));
+  filter: drop-shadow(0 0 14px rgba(0, 255, 65, 0.18));
 }
 
 .finale-transition.active .finale-glyph {
   transform: scale(1.12);
-  filter: drop-shadow(0 0 24px rgba(255, 210, 110, 0.45));
+  filter: drop-shadow(0 0 34px rgba(255, 215, 130, 0.6));
 }
 
 .finale-transition.pulse .finale-glyph {
@@ -920,11 +920,15 @@ button.secondary:hover {
   stroke: var(--glyph-color);
   stroke-width: 2;
   opacity: 0;
-  transition: stroke var(--glyph-duration) ease;
+  transition: stroke var(--glyph-duration) ease, stroke-width var(--glyph-duration) ease;
 }
 
 .finale-transition.active {
-  --glyph-color: #ffd26a;
+  --glyph-color: #ffdf7a;
+}
+
+.finale-transition.active .glyph-shape {
+  stroke-width: 2.6;
 }
 
 .finale-glyph[data-shape="hexagon"] .glyph-hex {

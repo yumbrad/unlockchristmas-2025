@@ -110,6 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
 async function init() {
   cacheElements();
   audioBank = buildAudioBank();
+  if (audioBank.finale) {
+    audioBank.finale.load();
+  }
   bindEvents();
   initConnections();
   loadState();
@@ -453,56 +456,70 @@ function startFinaleTransition() {
     return;
   }
 
-  setFinaleGlyphShape();
-  if (elements.finaleMessage) {
-    elements.finaleMessage.classList.remove("show");
-    elements.finaleMessage.textContent = "";
-  }
-  elements.finaleTransition.classList.remove("hidden");
-  elements.finaleTransition.classList.add("show");
-  elements.finaleTransition.classList.remove("active", "pulse");
-  elements.finaleFlash.classList.remove("show");
-  elements.finaleTransition.setAttribute("aria-hidden", "false");
-
-  if (!state.finalePlayed) {
-    playSound("finale");
-    state.finalePlayed = true;
-  }
-
-  const soundDuration = getFinaleSoundDurationMs();
-  const glyphDuration = Math.max(1200, soundDuration - 300);
-  elements.finaleTransition.style.setProperty("--glyph-duration", `${glyphDuration}ms`);
-
-  setTimeout(() => {
-    elements.finaleTransition.classList.add("active");
-  }, 300);
-
-  const pulseDelay = Math.max(0, soundDuration - 450);
-  setTimeout(() => {
-    elements.finaleTransition.classList.add("pulse");
-    setTimeout(() => {
-      elements.finaleTransition.classList.remove("pulse");
-    }, 500);
-  }, pulseDelay);
-
-  const flashDuration = 120;
-  setTimeout(() => {
-    elements.finaleFlash.classList.add("show");
-  }, soundDuration);
-
-  setTimeout(() => {
+  let started = false;
+  const beginTransition = () => {
+    if (started) {
+      return;
+    }
+    started = true;
+    const soundDuration = getFinaleRemainingMs();
+    const phase2Speedup = 5000;
+    const glyphDuration = Math.max(800, soundDuration - 300 - phase2Speedup);
+    elements.finaleTransition.style.setProperty("--glyph-duration", `${glyphDuration}ms`);
+    setFinaleGlyphShape();
+    if (elements.finaleMessage) {
+      elements.finaleMessage.classList.remove("show");
+      elements.finaleMessage.textContent = "";
+    }
+    elements.finaleTransition.classList.remove("hidden");
+    elements.finaleTransition.classList.add("show");
+    elements.finaleTransition.classList.remove("active", "pulse");
     elements.finaleFlash.classList.remove("show");
-  }, soundDuration + flashDuration);
+    elements.finaleTransition.setAttribute("aria-hidden", "false");
 
-  const stillnessDelay = soundDuration + flashDuration + 250;
-  setTimeout(() => {
-    elements.finaleTransition.classList.remove("show");
-    elements.finaleTransition.classList.add("hidden");
-    elements.finaleTransition.setAttribute("aria-hidden", "true");
-    showFinaleMessage();
-    state.finaleTransitionRunning = false;
-    state.finaleTransitionComplete = true;
-  }, stillnessDelay);
+    setTimeout(() => {
+      elements.finaleTransition.classList.add("active");
+    }, 300);
+
+    const flashAt = Math.max(0, glyphDuration + 3000);
+    const pulseDelay = Math.max(0, flashAt - 220);
+    setTimeout(() => {
+      elements.finaleTransition.classList.add("pulse");
+      setTimeout(() => {
+        elements.finaleTransition.classList.remove("pulse");
+      }, 500);
+    }, pulseDelay);
+
+    const flashDuration = 120;
+    setTimeout(() => {
+      elements.finaleFlash.classList.add("show");
+    }, flashAt);
+
+    setTimeout(() => {
+      elements.finaleFlash.classList.remove("show");
+    }, flashAt + flashDuration);
+
+    const stillnessDelay = flashAt + flashDuration + 250;
+    setTimeout(() => {
+      elements.finaleTransition.classList.remove("show");
+      elements.finaleTransition.classList.add("hidden");
+      elements.finaleTransition.setAttribute("aria-hidden", "true");
+      showFinaleMessage();
+      state.finaleTransitionRunning = false;
+      state.finaleTransitionComplete = true;
+    }, stillnessDelay);
+  };
+
+  const startAudio = playFinaleAudio();
+  if (startAudio && typeof startAudio.then === "function") {
+    startAudio.then(() => {
+      beginTransition();
+    }).catch(() => {
+      beginTransition();
+    });
+    return;
+  }
+  beginTransition();
 }
 
 function setFinaleGlyphShape() {
@@ -514,10 +531,26 @@ function setFinaleGlyphShape() {
   elements.finaleGlyph.dataset.shape = shape;
 }
 
-function getFinaleSoundDurationMs() {
+function playFinaleAudio() {
+  const audio = audioBank.finale;
+  if (state.finalePlayed || !state.audioArmed || !audio) {
+    return Promise.resolve(false);
+  }
+  state.finalePlayed = true;
+  audio.preload = "auto";
+  audio.currentTime = 0;
+  const playPromise = audio.play();
+  if (playPromise && typeof playPromise.then === "function") {
+    return playPromise.then(() => true).catch(() => false);
+  }
+  return Promise.resolve(true);
+}
+
+function getFinaleRemainingMs() {
   const audio = audioBank.finale;
   if (audio && Number.isFinite(audio.duration) && audio.duration > 0) {
-    return audio.duration * 1000;
+    const remaining = Math.max(0, audio.duration - audio.currentTime);
+    return remaining * 1000;
   }
   return 4200;
 }
@@ -1461,6 +1494,7 @@ function verifyCoopCode() {
   const code = elements.coopInput.value.trim().toUpperCase();
   if (code === "GOLDENEGG") {
     setConnectionsStatus("FINAL KEY ACCEPTED", false);
+    setTimeout(() => playFinaleAudio(), 3000);
     showSuccessBanner(SUCCESS_MESSAGES[6], advanceLevel);
   } else {
     setConnectionsStatus("ACCESS DENIED", true);
